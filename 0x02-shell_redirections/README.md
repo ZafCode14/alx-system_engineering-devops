@@ -89,7 +89,7 @@ that are present in the current directory and all its subfolders.
 #!/bin/bash
 find -type f -name "*.js" -delete
 ```
-**
+*find a file with a name that ends with .js and delete*
 # 11. Don't just count your directories, make your directories count
 Write a script that counts the number of directories and sub-directories in the current directory.
 	- The current and parent directories should not be taken into account
