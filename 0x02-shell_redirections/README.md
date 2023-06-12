@@ -58,68 +58,84 @@ head -n 3 iacta | tail -n 1
 Write a shell script that creates a file named exactly \*\\'"Best School"\'\\*$\?\*\*\*\*\*:) 
 containing the text Best School ending by a new line.
 ```
+#!/bin/bash
+echo "Best School" > \\\*\\\\"'\"Best School\"\\'"\\\\\*\$\\\?\\\*\\\*\\\*\\\*\\\*\:\)
 ```
+*To properly name the file need to add a \ before every special character*
 
 # 8. Save current state of directory
 Write a script that writes into the file ls_cwd_content the result of the command ls -la. 
 If the file ls_cwd_content already exists, it should be overwritten. 
 If the file ls_cwd_content does not exist, create it.
+```
+#!/bin/bash
+ls -la > ls_cwd_content
+```
+*> - writes the result of the ls -la command in the file*
 
-9. Duplicate last line
+# 9. Duplicate last line
 Write a script that duplicates the last line of the file iacta
 	- The file iacta will be in the working directory
+```
+#!/bin/bash
+tail -n 1 iacta >> iacta
+```
+*>> - to add a line and don't overwrite.
 
-10. No more javascript
+# 10. No more javascript
 Write a script that deletes all the regular files (not the directories) with a .js extension 
 that are present in the current directory and all its subfolders.
-
-11. Don't just count your directories, make your directories count
+```
+#!/bin/bash
+find -type f -name "*.js" -delete
+```
+# 11. Don't just count your directories, make your directories count
 Write a script that counts the number of directories and sub-directories in the current directory.
 	- The current and parent directories should not be taken into account
 	- Hidden directories should be counted
 
-12. What’s new
+# 12. What’s new
 Create a script that displays the 10 newest files in the current directory.
 Requirements:
 	- One file per line
 	- Sorted from the newest to the oldest
 
-13. Being unique is better than being perfect
+# 13. Being unique is better than being perfect
 Create a script that takes a list of words as input and prints only words that appear exactly once.
 	- Input format: One line, one word
 	- Output format: One line, one word
 	- Words should be sorted
 
-14. It must be in that file
+# 14. It must be in that file
 Display lines containing the pattern “root” from the file /etc/passwd
 
-15. Count that word
+# 15. Count that word
 Display the number of lines that contain the pattern “bin” in the file /etc/passwd
 
-16. What's next?
+# 16. What's next?
 Display lines containing the pattern “root” and 3 lines after them in the file /etc/passwd.
 
-17. I hate bins
+# 17. I hate bins
 Display all the lines in the file /etc/passwd that do not contain the pattern “bin”.
 
-18. Letters only please
+# 18. Letters only please
 Display all lines of the file /etc/ssh/sshd_config starting with a letter.
 	- include capital letters as well
 
-19. A to Z
+# 19. A to Z
 Replace all characters A and c from input to Z and e respectively.
 
-20. Without C, you would live in hiago
+# 20. Without C, you would live in hiago
 Create a script that removes all letters c and C from input.
 
-21. esreveR
+# 21. esreveR
 Write a script that reverse its input.
 
-22. DJ Cut Killer
+# 22. DJ Cut Killer
 Write a script that displays all users and their home directories, sorted by users.
 	- Based on the the /etc/passwd file
 
-23. Empty casks make the most noise
+# 23. Empty casks make the most noise
 #advanced
 Write a command that finds all empty files and directories in the current directory 
 and all sub-directories.
@@ -129,7 +145,7 @@ and all sub-directories.
 	- The listing should end with a new line
 	- You are not allowed to use basename, grep, egrep, fgrep or rgrep
 
-24. A gif is worth ten thousand words
+# 24. A gif is worth ten thousand words
 #advanced
 Write a script that lists all the files with a .gif extension in the current directory 
 and all its sub-directories.
@@ -143,7 +159,7 @@ and all its sub-directories.
 	- The listing should end with a new line
 	- You are not allowed to use basename, grep, egrep, fgrep or rgrep
 
-25. Acrostic
+# 25. Acrostic
 #advanced
 An acrostic is a poem (or other form of writing) in which the first letter (or syllable, or word) of 
 each line (or paragraph, or other recurring feature in the text) spells out a word, message or the 
@@ -154,7 +170,7 @@ Create a script that decodes acrostics that use the first letter of each line.
 	- The ‘decoded’ message has to end with a new line
 	- You are not allowed to use grep, egrep, fgrep or rgrep
 
-26. The biggest fan
+# 26. The biggest fan
 #advanced
 Write a script that parses web servers logs in TSV format as input and displays the 11 hosts or IP 
 addresses which did the most requests.
