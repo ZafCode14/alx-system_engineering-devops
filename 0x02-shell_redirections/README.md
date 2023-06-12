@@ -80,7 +80,7 @@ Write a script that duplicates the last line of the file iacta
 #!/bin/bash
 tail -n 1 iacta >> iacta
 ```
-*>> - to add a line and don't overwrite.
+*>> - to add a line and don't overwrite.*
 
 # 10. No more javascript
 Write a script that deletes all the regular files (not the directories) with a .js extension 
@@ -89,51 +89,98 @@ that are present in the current directory and all its subfolders.
 #!/bin/bash
 find -type f -name "*.js" -delete
 ```
+**
 # 11. Don't just count your directories, make your directories count
 Write a script that counts the number of directories and sub-directories in the current directory.
 	- The current and parent directories should not be taken into account
 	- Hidden directories should be counted
-
+```
+#!/bin/bash
+find . -type d -not -name "." | wc -l
+```
 # 12. What’s new
 Create a script that displays the 10 newest files in the current directory.
 Requirements:
 	- One file per line
 	- Sorted from the newest to the oldest
+```
+#!/bin/bash
+ls -t1 | head -n 10
+```
 
 # 13. Being unique is better than being perfect
 Create a script that takes a list of words as input and prints only words that appear exactly once.
 	- Input format: One line, one word
 	- Output format: One line, one word
 	- Words should be sorted
-
+```
+#!/bin/bash
+sort | uniq -u
+```
 # 14. It must be in that file
 Display lines containing the pattern “root” from the file /etc/passwd
+```
+#!/bin/bash
+grep -i "root" /etc/passwd
+```
 
 # 15. Count that word
 Display the number of lines that contain the pattern “bin” in the file /etc/passwd
+```
+#!/bin/bash
+grep -c -i "bin" /etc/passwd
+```
 
 # 16. What's next?
 Display lines containing the pattern “root” and 3 lines after them in the file /etc/passwd.
+```
+#!/bin/bash
+grep -i "root" -A 3 /etc/passwd
+```
 
 # 17. I hate bins
 Display all the lines in the file /etc/passwd that do not contain the pattern “bin”.
+```
+#!/bin/bash
+grep -i -v "bin" /etc/passwd
+```
 
 # 18. Letters only please
 Display all lines of the file /etc/ssh/sshd_config starting with a letter.
 	- include capital letters as well
+```
+#!/bin/bash
+grep -i "^[a-z]" /etc/ssh/sshd_config
+```
 
 # 19. A to Z
 Replace all characters A and c from input to Z and e respectively.
+```
+#!/bin/bash
+tr "A" "Z" | tr "c" "e"
+```
 
 # 20. Without C, you would live in hiago
 Create a script that removes all letters c and C from input.
+```
+#!/bin/bash
+tr -d "cC"
+```
 
 # 21. esreveR
 Write a script that reverse its input.
+```
+#!/bin/bash
+rev
+```
 
 # 22. DJ Cut Killer
 Write a script that displays all users and their home directories, sorted by users.
 	- Based on the the /etc/passwd file
+```
+#!/bin/bash
+cut -d ':' -f 1,6 /etc/passwd | sort
+```
 
 # 23. Empty casks make the most noise
 #advanced
@@ -144,6 +191,10 @@ and all sub-directories.
 	- One file name per line
 	- The listing should end with a new line
 	- You are not allowed to use basename, grep, egrep, fgrep or rgrep
+```
+#!/bin/bash
+find . -empty | rev | cut -d '/' -f 1 | rev
+```
 
 # 24. A gif is worth ten thousand words
 #advanced
@@ -158,6 +209,10 @@ and all its sub-directories.
 	- One file name per line
 	- The listing should end with a new line
 	- You are not allowed to use basename, grep, egrep, fgrep or rgrep
+```
+#!/bin/bash
+find -type f -name "*.gif" | rev | cut -d "/" -f 1 | cut -d '.' -f 2- | rev | LC_ALL=C sort -f
+```
 
 # 25. Acrostic
 #advanced
@@ -169,6 +224,10 @@ Read more.
 Create a script that decodes acrostics that use the first letter of each line.
 	- The ‘decoded’ message has to end with a new line
 	- You are not allowed to use grep, egrep, fgrep or rgrep
+```
+#!/bin/bash
+cut -c 1 | paste -s -d ''
+```
 
 # 26. The biggest fan
 #advanced
@@ -176,3 +235,8 @@ Write a script that parses web servers logs in TSV format as input and displays 
 addresses which did the most requests.
 	- Order by number of requests, most active host or IP at the top
 	- You are not allowed to use grep, egrep, fgrep or rgrep
+```
+#!/bin/bash
+tail -n +2 | cut -f -1 | sort -k 1 | uniq -c | sort -rnk 1 | head -n 11 | rev | cut -d ' ' -f -1 | rev
+```
+
