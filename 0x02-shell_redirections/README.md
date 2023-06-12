@@ -87,9 +87,9 @@ Write a script that deletes all the regular files (not the directories) with a .
 that are present in the current directory and all its subfolders.
 ```
 #!/bin/bash
-find -type f -name "*.js" -delete
+find . -type f -name "*.js" -delete
 ```
-*find a file with a name that ends with .js and delete*
+find files in the current directory with a name that ends with .js and delete*
 # 11. Don't just count your directories, make your directories count
 Write a script that counts the number of directories and sub-directories in the current directory.
 	- The current and parent directories should not be taken into account
@@ -98,6 +98,7 @@ Write a script that counts the number of directories and sub-directories in the 
 #!/bin/bash
 find . -type d -not -name "." | wc -l
 ```
+*find in the current directory directories except the current directory and count lines*
 # 12. What’s new
 Create a script that displays the 10 newest files in the current directory.
 Requirements:
@@ -107,7 +108,7 @@ Requirements:
 #!/bin/bash
 ls -t1 | head -n 10
 ```
-
+*list files, sort by time, newest first, one file per line and display the first 10*
 # 13. Being unique is better than being perfect
 Create a script that takes a list of words as input and prints only words that appear exactly once.
 	- Input format: One line, one word
@@ -117,13 +118,15 @@ Create a script that takes a list of words as input and prints only words that a
 #!/bin/bash
 sort | uniq -u
 ```
+*sort and only the unque words(words that appear only once) you shold firs cat a file before running the command*
+
 # 14. It must be in that file
 Display lines containing the pattern “root” from the file /etc/passwd
 ```
 #!/bin/bash
 grep -i "root" /etc/passwd
 ```
-
+**
 # 15. Count that word
 Display the number of lines that contain the pattern “bin” in the file /etc/passwd
 ```
