@@ -1,5 +1,11 @@
 0. Hello World
+
 Write a script that prints “Hello, World”, followed by a new line to the standard output.
+
+#!/bin/bash
+echo 'Hello, World'
+
+# echo - the command that ptints in the terminal.
 
 1. Confused smiley
 Write a script that displays a confused smiley "(Ôo)'.
