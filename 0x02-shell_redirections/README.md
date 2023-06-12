@@ -126,21 +126,21 @@ Display lines containing the pattern “root” from the file /etc/passwd
 #!/bin/bash
 grep -i "root" /etc/passwd
 ```
-**
+*display pattern root not -i case sensetive from the file*
 # 15. Count that word
 Display the number of lines that contain the pattern “bin” in the file /etc/passwd
 ```
 #!/bin/bash
 grep -c -i "bin" /etc/passwd
 ```
-
+*- c display the number of lines*
 # 16. What's next?
 Display lines containing the pattern “root” and 3 lines after them in the file /etc/passwd.
 ```
 #!/bin/bash
 grep -i "root" -A 3 /etc/passwd
 ```
-
+*-A (three lines after)*
 # 17. I hate bins
 Display all the lines in the file /etc/passwd that do not contain the pattern “bin”.
 ```
