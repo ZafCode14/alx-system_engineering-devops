@@ -16,10 +16,15 @@ echo "\"(Ôo)'"
 ```
 
 *the  \  is used to ignor the  "  so that in does not reed it as a closing quote*
-2. Let's display a file
+# 2. Let's display a file
 Display the content of the /etc/passwd file.
+```
+#!/bin/bash
+cat /etc/passwd
+```
+*cat - the command that displays the content of a file*
 
-3. What about 2?
+# 3. What about 2?
 Display the content of /etc/passwd and /etc/hosts
 
 4. Last lines of a file
