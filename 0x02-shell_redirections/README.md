@@ -6,11 +6,16 @@ Write a script that prints “Hello, World”, followed by a new line to the sta
 echo 'Hello, World'
 ```
 
-### echo - the command that ptints in the terminal.
+*echo - the command that ptints in the terminal.*
 
-1. Confused smiley
+# 1. Confused smiley
 Write a script that displays a confused smiley "(Ôo)'.
+```
+#!/bin/bash
+echo "\"(Ôo)'"
+```
 
+*the  \  is used to ignor the  "  so that in does not reed it as a closing quote*
 2. Let's display a file
 Display the content of the /etc/passwd file.
 
