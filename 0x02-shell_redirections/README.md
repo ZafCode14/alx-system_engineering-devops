@@ -47,7 +47,7 @@ head /etc/passwd -n 10
 
 # 6. Line #2
 Write a script that displays the third line of the file iacta.
-The file iacta will be in the working directory
+The file iacta will be in the working directory <br>
 	- You’re not allowed to use sed
 ```
 #!/bin/bash
