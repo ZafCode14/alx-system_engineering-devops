@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # This script displays the 12 hour clock
 
-i=1
-while [ $i -lt 13 ]
+i=0
+while [ $i -le 12 ]
 do
 	j=1
 	echo "Hour: $i"
