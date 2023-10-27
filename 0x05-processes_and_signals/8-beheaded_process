@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script beheads the invinsible highlander
+
+pkill -f -SIGKILL 7-highlander
