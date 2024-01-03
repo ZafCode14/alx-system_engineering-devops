@@ -4,20 +4,6 @@
 sudo apt update
 sudo apt install nginx -y
 
-sudo echo 'Hello World!' > /var/www/html/index.html
-sudo echo "
-events {
-}
-
-http {
-    server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        root /var/www/html;
-    }
-}
-" > /etc/nginx/nginx.conf
-
-sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/nginx.conf
+sudo sed -i '/location \/redirect_me {/a \\n        return 301 http://example.com/redirected_page;' /etc/nginx/nginx.conf
 
 sudo service nginx restart
