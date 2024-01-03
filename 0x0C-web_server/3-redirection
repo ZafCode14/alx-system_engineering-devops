@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
-# Install nginx server and must conatain a page that contains "Hello World"
+# redirecting to anothere page
 
 sudo apt update
 sudo apt install nginx -y
-sudo ufw allow 'Nginx HTTP'
-echo "Hello World" | sudo tee /var/www/html/index
-sudo sed -i '
-/listen 80 default_server/a 
-rewrite ^/
-redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sudo echo 'Hello World!' > /var/www/html/index.html
+sudo echo "
+events {
+}
+
+http {
+    server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+    }
+}
+" > /etc/nginx/nginx.conf
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/nginx.conf
 sudo service nginx restart
