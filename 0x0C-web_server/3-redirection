@@ -3,6 +3,7 @@
 
 sudo apt update
 sudo apt install nginx -y
+
 sudo echo 'Hello World!' > /var/www/html/index.html
 sudo echo "
 events {
@@ -16,5 +17,7 @@ http {
     }
 }
 " > /etc/nginx/nginx.conf
+
 sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/nginx.conf
+
 sudo service nginx restart
