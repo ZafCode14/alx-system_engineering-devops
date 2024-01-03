@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Install nginx server and must conatain a page that contains "Hello World"
+
+sudo apt update
+sudo apt install nginx -y
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+sudo service nginx restart
