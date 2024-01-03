@@ -15,5 +15,5 @@ http {
         root /var/www/html;
     }
 }
-" > /etc/nginx/sites-available/default
+" > /etc/nginx/nginx.conf
 sudo service nginx start
