@@ -4,6 +4,20 @@
 sudo apt update
 sudo apt install nginx -y
 
+sudo echo 'Hello World!' > /var/www/html/index.html
+sudo echo "
+events {
+}
+
+http {
+    server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+    }
+}
+" > /etc/nginx/nginx.conf
+
 sudo sed -i 's/location \/[^A-Za-z0-9_]/location \/redirect_me /; /location \/redirect_me/a\\t\treturn 301 https://www.youtube.com;' /etc/nginx/sites-available/default
 
 sudo service nginx restart
