@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# start nginx in a container
+
+sudo docker pull nginx:1.25.3-alpine
+sudo docker run -d -p 80:80 nginx:1.25.3-alpine
