@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
 # Update package lists and install Nginx
-
-apt update
-apt install -y nginx
-
-if ! grep -q "listen 80;" /etc/nginx/sites-available/default; then
-    sed -i 's/listen 80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
-fi
-
-if ! ufw status | grep -q "80/tcp"; then
-    ufw allow 80/tcp
-fi
-
-service nginx restart
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
