@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module with a python script"""
-import requests
 import json
+import requests
 
 if __name__ == "__main__":
     employees = requests.get(
