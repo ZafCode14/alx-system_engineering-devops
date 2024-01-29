@@ -9,11 +9,11 @@ if __name__ == "__main__":
 
     with open("todo_all_employees.json", "w", newline="") as jsonfile:
         empl_dict = {}
-        url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(
-                        empl_id)
         for j in employees:
             empl_id = j["id"]
             empl_username = j["username"]
+            url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(
+                            empl_id)
             todo_list = requests.get(url).json()
 
             empl_list = []
