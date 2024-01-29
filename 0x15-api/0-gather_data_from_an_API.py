@@ -23,4 +23,4 @@ if __name__ == "__main__":
         empl_name, done_with, tasks))
     for i in todo_list:
         if i["completed"] is True:
-            print("\t{}".format(i["title"]))
+            print("\t {}".format(i["title"]))
