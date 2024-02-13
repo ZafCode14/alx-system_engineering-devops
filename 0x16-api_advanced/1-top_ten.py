@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Module with a python script"""
 import requests
 
 def top_ten(subreddit):
