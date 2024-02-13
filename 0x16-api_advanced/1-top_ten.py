@@ -2,6 +2,7 @@
 """Module with a python script"""
 import requests
 
+
 def top_ten(subreddit):
     """Query the top 10 hot post title"""
     try:
