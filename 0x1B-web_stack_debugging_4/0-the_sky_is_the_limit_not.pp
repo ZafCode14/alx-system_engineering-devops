@@ -1,11 +1,12 @@
 # Increase nginx traffic
 
-exec { 'fix--for-nginx':
-  command => 'sed -i "s/15/4096/" /etc/default/nginx',
-  path    => '/usr/local/bin/:/bin/'
+exec {'replace':
+  provider => shell,
+  command  => 'sed -i "s/ULIMIT=\"-n 15\"/ULIMIT=\"-n 4096\"/" /etc/default/nginx',
+  before   => Exec['restart'],
 }
 
-exec { 'nginx-restart':
-  command => 'service nginx restart',
-  path    => '/etc/init.d/'
+exec {'restart':
+  provider => shell,
+  command  => 'service nginx restart',
 }
